@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,39 +6,76 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    public Snake snake;
-    private Grid grid;
     public static GameManager Instance;
+    [SerializeField] public Snake snake;
+    private Grid grid;
+    
     public TextMeshProUGUI scoreText;
-    public GameObject retryButton;
-    public TextMeshProUGUI resultText;
     public TextMeshProUGUI fianlScore;
+    public int score = 0;
+    public GameObject resultText;
+    public GameObject retryButton;
+    public GameObject menuButton;
+
+    public GameObject background;
+    public GameObject backgroundMusic;
+
     private void Awake()
     {
         Instance = this;
+        Leaderboard.Instance.LoadLeaderboard();
     }
     void Start()
     {
+        Time.timeScale = 1;
         Debug.Log("Start");
-        grid = new Grid(50, 50);
+        grid = new Grid(100, 100);
         snake.Setup(grid);
         grid.Setup(snake);
         retryButton.SetActive(false);
+        menuButton.SetActive(false);
+        background.SetActive(false);
         fianlScore.text = "";
-        resultText.text = "";
+        resultText.SetActive(false);
+        
     }
-    public void EndGame(bool win)
+    public void EndGame()
     {
-        scoreText.text = "";
+        backgroundMusic.SetActive(false);
         retryButton.SetActive(true);
-        fianlScore.text = "Final" + scoreText;
-        resultText.text = win?"You Win" : "You Lose";
+        menuButton.SetActive(true);
+        background.SetActive(true);
+        resultText.SetActive(true);
+        fianlScore.text = "Final " + scoreText.text;
 
+        Leaderboard.Instance.AddScore(score);
+        Leaderboard.Instance.SaveLeaderboard();
+
+        scoreText.text = "";
+        score = 0;
     }
-    public void StartNewGame(int index)
+    public void StartNewGame()
     {
+        SceneManager.LoadScene(1);
         retryButton.SetActive(false);
+    }
+    public void MainMenu()
+    {
+       
+        menuButton.SetActive(false);
         SceneManager.LoadScene(0);
     }
+    public void BackToGame()
+    {
+        Pause._Hide();
+        Time.timeScale = 1;
+    }
+    public void PauseGame()
+    {
+        Pause._Show();
+        Time.timeScale = 0;
+    }
+
+    
+
 }

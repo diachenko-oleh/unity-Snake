@@ -23,11 +23,8 @@ public class Grid
     {
         do
         {
-            foodPosition = new Vector2Int(Random.Range(0, width / 5) * 5, Random.Range(0, height / 5) * 5);
+            foodPosition = new Vector2Int(Random.Range(-10, 11) * 5, Random.Range(-10, 11) * 5);
         } while (snake.GetFullSnakePosition().IndexOf(foodPosition)!=-1);
-
-            //Vector2Int.Distance(snake.GetFullSnakePosition().IndexOf(foodPosition), foodPosition) < 10);
-
         foodObject = new GameObject("Food", typeof(SpriteRenderer));
         foodObject.GetComponent<SpriteRenderer>().sprite = AssetsHandler.Instance.foodSprite;
         foodObject.transform.position = new Vector3(foodPosition.x, foodPosition.y);
@@ -45,21 +42,21 @@ public class Grid
     }
     public Vector2Int ValidateGridPosition(Vector2Int gridPosition)
     {
-        if (gridPosition.x < -width)
+        if (gridPosition.x < -width/2)
         {
-            gridPosition.x = width - 1;
+            gridPosition.x = width / 2 - 1;
         }
-        else if (gridPosition.y < -height)
+        else if (gridPosition.y < -height / 2)
         {
-            gridPosition.y = height - 1;
+            gridPosition.y = height / 2 - 1;
         }
-        else if (gridPosition.x > width)
+        else if (gridPosition.x > width / 2)
         {
-            gridPosition.x = -width;
+            gridPosition.x = -width / 2;
         }
-        else if (gridPosition.y > height)
+        else if (gridPosition.y > height / 2)
         {
-            gridPosition.y = -height;
+            gridPosition.y = -height / 2;
         }
         return gridPosition;
     }
