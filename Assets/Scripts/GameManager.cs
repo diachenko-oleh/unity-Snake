@@ -23,7 +23,10 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        Leaderboard.Instance.LoadLeaderboard();
+        if (Leaderboard.Instance != null)
+        {
+            Leaderboard.Instance.LoadLeaderboard();
+        }
     }
     void Start()
     {

@@ -707,9 +707,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -786041333
   m_SortingLayer: -1
-  m_SortingOrder: 1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 7482667652216324306, guid: c1a4b6c22d88de1479ac6b54c5631343, type: 3}
-  m_Color: {r: 0.19244564, g: 0.5698112, b: 0.19840845, a: 1}
+  m_Color: {r: 0.3372549, g: 0.7294118, b: 0.3372549, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -729,7 +729,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 107, y: 107, z: 1}
+  m_LocalScale: {x: 120, y: 120, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1371,10 +1371,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snake: {fileID: 439264451}
   scoreText: {fileID: 1195055466}
+  fianlScore: {fileID: 1343327596}
+  score: 0
+  resultText: {fileID: 724544156}
   retryButton: {fileID: 910760741}
   menuButton: {fileID: 138300957}
-  resultText: {fileID: 724544156}
-  fianlScore: {fileID: 1343327596}
   background: {fileID: 1299923374}
   backgroundMusic: {fileID: 1904775968}
 --- !u!1 &910760741
@@ -1972,9 +1973,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -786041333
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: c1a4b6c22d88de1479ac6b54c5631343, type: 3}
-  m_Color: {r: 0.1794019, g: 0.4188679, b: 0.18439075, a: 1}
+  m_Color: {r: 0.1794019, g: 0.57254905, b: 0.18039216, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1994,7 +1995,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 110, y: 110, z: 1}
+  m_LocalScale: {x: 115, y: 115, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2745,6 +2746,7 @@ MonoBehaviour:
   snakeBodySprite: {fileID: 4810368815826818867, guid: bf2951a6752a096438f5f7ac48515c0c, type: 3}
   snakeCornerSprite: {fileID: -8000124712282247305, guid: bf2951a6752a096438f5f7ac48515c0c, type: 3}
   foodSprite: {fileID: 7482667652216324306, guid: f16af3554c2f86a4b86ccc36bc710a49, type: 3}
+  background: {fileID: 7482667652216324306, guid: c1a4b6c22d88de1479ac6b54c5631343, type: 3}
   foodEaten: {fileID: 8300000, guid: 62b71d96968e4b84b8077ef2b9dc0e19, type: 3}
   snakeDeath: {fileID: 8300000, guid: 2b909ea7c09b86547bd70d7d07ab3a78, type: 3}
 --- !u!4 &1713530251

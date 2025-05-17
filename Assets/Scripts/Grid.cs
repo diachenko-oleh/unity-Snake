@@ -17,7 +17,35 @@ public class Grid
     public void Setup(Snake snake)
     {
         this.snake = snake;
+        GenerateField();
         SpawnFood();
+    }
+    public void GenerateField()
+    {
+        GameObject parent = new GameObject("BackgroundTiles");
+
+        int tileSize = 16;
+        int start = -48;
+        int end = 48;
+        Color light = new Color(86f / 255f, 186f / 255f, 86f / 255f);
+        Color dark = new Color(46f / 255f, 146f / 255f, 46f / 255f);
+
+        for (int x = start; x <= end; x += tileSize)
+        {
+            for (int y = start; y <= end; y += tileSize)
+            {
+                GameObject tile = new GameObject($"Tile_{x}_{y}");
+                tile.transform.position = new Vector3(x, y, 0);
+                tile.transform.parent = parent.transform;
+                tile.transform.localScale = new Vector3(tileSize, tileSize, 0);
+
+                SpriteRenderer renderer = tile.AddComponent<SpriteRenderer>();
+                renderer.sprite = AssetsHandler.Instance.background;
+                bool isEven = ((x - start) / tileSize + (y - start) / tileSize) % 2 == 0;
+                renderer.color = isEven ? light:dark ;
+                renderer.sortingLayerName = "Background";
+            }
+        }
     }
     private void SpawnFood()
     {
@@ -44,11 +72,11 @@ public class Grid
     {
         if (gridPosition.x < -width/2)
         {
-            gridPosition.x = width / 2 - 1;
+            gridPosition.x = width / 2;
         }
         else if (gridPosition.y < -height / 2)
         {
-            gridPosition.y = height / 2 - 1;
+            gridPosition.y = height / 2;
         }
         else if (gridPosition.x > width / 2)
         {

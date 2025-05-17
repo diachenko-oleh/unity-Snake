@@ -11,6 +11,7 @@ public class AssetsHandler : MonoBehaviour
     public Sprite snakeBodySprite;
     public Sprite snakeCornerSprite;
     public Sprite foodSprite;
+    public Sprite background;
     public AudioClip foodEaten;
     public AudioClip snakeDeath;
 }

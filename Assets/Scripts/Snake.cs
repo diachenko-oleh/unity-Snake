@@ -27,7 +27,7 @@ public class Snake : MonoBehaviour
     private void Start()
     {
         Position = new Vector2Int(0, 0);
-        MoveTimerMax = 0.2f;
+        MoveTimerMax = 0.15f;
         MoveTimer = MoveTimerMax;
         MoveDirection = Direction.Right;
 
